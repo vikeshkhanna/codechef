@@ -2,8 +2,7 @@
 @author: Vikesh Khanna
 */
 
-//Sieve of erastrothenes
-
+// Euclidean algorithm for GCD
 int gcd(int r0,int r1)
 {
     int temp;
@@ -29,4 +28,25 @@ int gcd(int r0,int r1)
         }while(remainder!=0);
 
     return r0;
+}
+
+// Sieve of erastrothenes for prime numbers
+void sieve(bool a[],int n) /* 1 to n, bool a[n+1] */
+{
+   if(n<1) return;
+
+   a[1] = false;
+
+   for(int i=2;i<=n;i++)
+    {
+        if(a[i]) //prime
+        {
+            int j=2;
+            while(j*i<=n)
+            {
+                    a[j*i] = false;
+                    j++;
+            }
+        }
+    }
 }
